@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO APP</title>
+
+</head>
+<style>@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+  *,
+  *:before,
+  *:after{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+  }
+  body{
+    background: url(https://wallpapercave.com/wp/wp2610905.jpg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  overflow: hidden;
+     
+  }
+  .container{
+    position: relative;
+    width: 550px;
+    height: 550px;
+    border-radius: 30px;
+    background: #1a1919;
+    box-shadow: 30px 25px 75px rgb(0, 0, 0,0.25),
+    10px 10px 75px rgb(0, 0, 0,0.25),
+    inset 5px 5px 10px rgb(0, 0, 0,0.25),
+   inset 5px 5px 20px rgb(255, 255, 255,0.2),
+   inset -5px -5px 15px rgb(0,0,0,0.75);
+  }
+ h1{
+  width: 100%;
+  font-weight: 700;
+ align-items: center;
+  color: cyan;
+  font-size: 40px;
+  margin-bottom: 10px;
+  margin-left: 120px;
+  margin-top: 20px;
+  }
+  #newtask{
+    position: relative;
+    width: 550px;
+    
+    border-radius: 30px;
+    background: #600552;
+    box-shadow: 30px 25px 75px rgb(0, 0, 0,0.25),
+    10px 10px 75px rgb(0, 0, 0,0.25),
+    inset 5px 5px 10px rgb(0, 0, 0,0.25),
+   inset 5px 5px 20px rgb(255, 255, 255,0.2),
+   inset -5px -5px 15px rgb(0,0,0,0.75);
+  }
+  #newtask input{
+    font-size: 25px;
+    margin:3%;
+    padding: 5px 35px;
+    border-radius: 20px;
+    border: 3px solid black;
+    width: 450px;
+    box-shadow: 5px 5px 7px rgb(0, 0, 0,0.25),
+   inset 2px 2px 5px rgb(0, 0, 0,0.5),
+   inset -3px -3px 5px rgb(0,0,0,0.5);
+  }
+  #newtask input:focus{
+    box-shadow: 0 0 5px  cyan ,
+    0 0 25px  cyan, 0 0 50px  cyan , 
+    0 0 100px    cyan ,    0 0 200px  cyan;
+  }
+  
+  #newtask button{
+   
+    color: #fcfcfc;
+    border:none;
+    padding: 0.4rem 0.6rem;
+    border-radius: 5px;
+    margin-right: 4px;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    background-color: #8052ec;
+    cursor: pointer;
+    transition: 1px solid #f5f5f5;
+  }
+  #newtask button:hover{
+    box-shadow: 0 0 5px  cyan ,
+    0 0 25px  cyan, 0 0 50px  cyan , 
+    0 0 100px    cyan ,    0 0 200px  cyan;
+   }
+ 
+  #tasks{
+      background-color: #5f0976;
+      padding: 30px 20px;
+      margin-top: 60px;
+      border-radius: 10px;
+      box-shadow: 0 15px 30px rgba(2, 2, 2, 0.3);
+      width: 80%;
+      position: relative;
+  }
+  .task{
+      background-color: #590466;
+      height: 50px;
+      padding: 2px 5px;
+      margin-top: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #080909;
+      cursor: pointer;
+  }
+  .task span{
+      font-family: 'Poppins',sans-serif;
+      font-size: 40px;
+      font-weight: 400;
+  }
+  .task button{
+      background-color: #8052ec;
+      color: #ffffff;
+      height: 100%;
+      width: 40px;
+      padding: 10px 40px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      outline: none;
+  }
+
+ 
+  .delete::before{
+       content: '';
+       position: absolute;
+      
+       width: 30px;
+       height: 5px;
+       background: #fff;
+       transform: rotate(45deg);
+  }
+  .delete::after{
+    content: '';
+    position: absolute;
+   
+    width: 30px;
+    height: 5px;
+    background: #fff;
+    transform: rotate(-45deg);
+}
+#newtask::before{
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 2px;
+  background: #fff;
+ 
+}
+ 
+.completed{
+      background: #730b7c;
+      
+    }
+    .completed::after{
+      content: '';
+      position: absolute;
+      left: 16px;
+      width: 40px;
+      height: 10px;
+     border-left: 5px solid #fff;
+     border-bottom: 5px solid #fff;
+     transform: rotate(315deg);
+  }
+  #task{
+      position: relative;
+      margin-top: 20px;
+      height: 350px;
+      overflow-y: auto;
+      padding-right: 10px;
+  }
+  ::-webkit-scrollbar-track
+  {
+      box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+  }
+  ::-webkit-scrollbar-track
+  {
+      width: 10px;
+  }
+  ::-webkit-scrollbar-thumb
+  {
+   background: #fff;
+  }
+ 
+    </style>
+    
+    
+<body>
+  <div class="container">
+    <div id="newtask">
+      <h1>TO DO APP</h1>
+        <input type="text" placeholder="Enter Your Task.....">
+        <button id="push">Add</button>
+    </div>
+    <div id="tasks"></div>
+</div>
+
+ 
+ <script src="todo.js"></script>
+</body>
+</html>
